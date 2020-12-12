@@ -142,7 +142,7 @@ startup{
                 "World_930_QueenSecret"
         };
 
-        settings.Add("split_enter", false, "split when entering in a level for the first time");
+        settings.Add("split_enter", true, "split when entering in a level for the first time");
         foreach (string levelname in vars.alllevels)
         {
                 settings.Add(levelname, false, "split when entering in " + levelname, "split_enter");
@@ -151,7 +151,12 @@ startup{
 }
 
 start{
-        return !current.isStartScreen && old.isStartScreen;
+        if (!current.isStartScreen && old.isStartScreen)
+        {
+                vars.seenlevels = new bool[vars.alllevels.Length];
+                return true;
+        }
+        return false;
 }
 
 reset{
