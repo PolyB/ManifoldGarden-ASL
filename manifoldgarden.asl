@@ -1,4 +1,4 @@
-state("nifoldGarden"){
+state("ManifoldGarden"){
         // Made by PolyB - 12/12/2020
         // Made using manifold garden version 1.1.0.14705 distributed on itch.io
 
